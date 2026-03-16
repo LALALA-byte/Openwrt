@@ -30,22 +30,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # 从日志看：/home/runner/work/Openwrt/Openwrt/diy-part2.sh: line 26: cd: openwrt: No such file or directory
 
 # ==========================================
-# 1. 修改 .config 配置
-# ==========================================
-cat >> .config << EOF
-CONFIG_TARGET_ar71xx=y
-CONFIG_TARGET_ar71xx_tiny=y
-CONFIG_TARGET_ar71xx_tiny_DEVICE_tl-wr703n-v1=y
-CONFIG_TARGET_ROOTFS_SQUASHFS=y
-CONFIG_TARGET_ROOTFS_INITRAMFS=y
-CONFIG_TARGET_IMAGES_GZIP=y
-CONFIG_TARGET_SQUASHFS_BLOCK_SIZE=1024
-EOF
-
-# 应用配置
-make defconfig
-
-# ==========================================
 # 2. 修改 tiny-tp-link.mk（关键！不是 tiny.mk）
 # ==========================================
 echo "=== 修改 tiny-tp-link.mk ==="
