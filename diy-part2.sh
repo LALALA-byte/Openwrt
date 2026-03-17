@@ -86,5 +86,3 @@ echo "=== diffconfig 输出 ==="
 ./scripts/diffconfig.sh 2>/dev/null | head -50
 
 exit 0
-
-exit 0
